@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Anood Alhjaj</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Anood Alhjaj</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -47,13 +48,13 @@
             <ul class="navbar-nav pr-5">
             
               <li class="nav-item">
-                <a class="nav-link" href="#">Twitter</a>
+                <a class="nav-link" href="https://github.com/AnoodALhjaj">Github</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Resume</a>
+                <a class="nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blog/">Blogs</a>
+                <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
               </li>
             </ul>
           </div>
@@ -72,6 +73,7 @@
           <a href="mailto:Anood8ALhjaj@gmail.com" class="btn btn-primary my-2">Email me</a>
         
         </p>
+        <img src="{% static 'IMG_9815.JPG' %}" height="200" width="50%" style="object-fit: cover;"/>
       </div>
     </div>
   </section>
@@ -86,7 +88,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img src="{{job.image.url}}" class="bd-placeholder-img card-img-top" width="100%" height="300" style="object-fit: cover;" />
+         <a href="{{job.image.url}}"> <img src="{{job.image.url}}" class="bd-placeholder-img card-img-top" width="100%" height="400" style="object-fit: cover;" /></a>
 
             <div class="card-body">
               <p class="card-text">{{job.sumamary}}</p>
