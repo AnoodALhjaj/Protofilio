@@ -39,7 +39,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Anood Alhjaj</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Anood Alhjaj</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -53,7 +53,7 @@
                 <a class="nav-link" href="#">Resume</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blog/">Blogs</a>
+                <a class="nav-link active" href="#">Blogs</a>
               </li>
             </ul>
           </div>
@@ -62,42 +62,29 @@
 </header>
 
 <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hey, I'm Anood</h1>
-        <p class="lead text-muted">Software Developer who like's to Build cool stuff, If you want To join my journey stay Close :)</p>
-        <p>
-          <a href="mailto:Anood8ALhjaj@gmail.com" class="btn btn-primary my-2">Email me</a>
-        
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-        {% for job in jobs.all%}
-
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="{{job.image.url}}" class="bd-placeholder-img card-img-top" width="100%" height="300" style="object-fit: cover;" />
-
-            <div class="card-body">
-              <p class="card-text">{{job.sumamary}}</p>
-              
+        <div class="post-single">
+          <div class="post-details">
+            
+            <h1>{{Blog.title}}</h1>
+            <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
+               
+               
+              <div class="d-flex align-items-center flex-wrap">       
+    <p>{{Blog.pub_date}}</p>
+    
+              </div>
             </div>
-          </div>
-        </div>
-       {% endfor %}
-      </div>
-    </div>
-  </div>
+            <div class="post-body">
+              <p class="lead"> 
+                {{Blog.body}}
+            </p>
+              <p> <img src="{{Blog.images.url}}" alt="..." class="img-fluid"></p>
+              
+              </div>
+              </div>
+              </div>
+              </div>
 
 </main>
 <footer class="d-flex bg-dark justify-content-center">

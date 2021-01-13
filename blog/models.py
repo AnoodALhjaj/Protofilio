@@ -6,3 +6,6 @@ class Blog(models.Model):
     pub_date=models.DateTimeField()
     body=models.TextField()
     images=models.ImageField(default="default.png",blank=True,upload_to='blogs')
+
+    def summary(self):
+        return self.body[:100]
